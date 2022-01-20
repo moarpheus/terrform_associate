@@ -17,10 +17,15 @@ provider "aws" {
   region  = "eu-west-2"
 }
 
+locals {
+  instance_type = "t3.micro"
+}
+
+
 resource "aws_instance" "my_server" {
   ami = "ami-0fdbd8587b1cf431e"
 
-  instance_type = "t2.nano"
+  instance_type = local.instance_type
 
   tags = {
     Name = "MyServer"
