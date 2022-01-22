@@ -1,4 +1,10 @@
 terraform {
+  cloud {
+    organization = "moarpheus-home"
+    workspaces {
+      name = "terrform_associate"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
