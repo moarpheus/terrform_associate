@@ -11,7 +11,9 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-data "aws_ami" "example" {
+data "aws_region" "current" {}
+
+data "aws_ami" "ami" {
   most_recent      = true
   owners           = ["amazon"]
 
