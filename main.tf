@@ -11,7 +11,13 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-data "aws_region" "current" {}
+data "aws_availability_zones" "all_zones" {
+  all_availability_zones = true
+  filter {
+    name   = "opt-in-status"
+    values = ["opt-in-not-required"]
+  }
+}
 
 data "aws_ami" "ami" {
   most_recent      = true
